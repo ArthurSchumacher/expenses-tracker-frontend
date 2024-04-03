@@ -7,7 +7,7 @@ export default function Incomes() {
       <h1 className="text-3xl">Incomes</h1>
       <div className="flex flex-col items-center justify-center p-4 bg-primarylighter border border-border rounded-md mt-4 text-2xl uppercase">
         <p>Total income:</p>
-        <p className="text-secondary">
+        <p className="text-lime-500">
           R$ <span>1000,00</span>
         </p>
       </div>
