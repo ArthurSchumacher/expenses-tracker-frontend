@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.glitch {
+    animation: ft-glitch 500ms infinite;
+}
+
+@keyframes ft-glitch {
+    0% {
+        text-shadow: none;
+    }
+    25% {
+        text-shadow: -2px -2px 0 #eb055a,2px 2px 0 #4632f0;
+    }
+    50% {
+        text-shadow: 2px -2px 0 #eb055a,-2px 2px 0 #4632f0;
+    }
+    75% {
+        text-shadow: -2px 2px 0 #eb055a,2px -2px 0 #4632f0;
+    }
+    100% {
+        text-shadow: 2px 2px 0 #eb055a,-2px -2px 0 #4632f0;
+    }
+}
