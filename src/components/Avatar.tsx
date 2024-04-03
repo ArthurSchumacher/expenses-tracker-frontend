@@ -9,7 +9,7 @@ function Avatar() {
         <p className="text-neutral-50 text-base font-bold uppercase glitch">
           Arthur Schumacher
         </p>
-        <p className="text-xs text-secondary">R$ 1000</p>
+        <p className="text-xs text-secondary">R$ 0</p>
       </div>
     </div>
   );
