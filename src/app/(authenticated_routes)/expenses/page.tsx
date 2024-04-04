@@ -1,4 +1,5 @@
 import ExpenseForm from "@/components/ExpenseForm";
+import TotalExpenses from "@/components/TotalExpenses";
 import { useState } from "react";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaDotCircle } from "react-icons/fa";
@@ -8,13 +9,8 @@ import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
 export default function Expenses() {
   return (
     <main>
-      <h1 className="text-3xl">Expenses</h1>
-      <div className="flex flex-col items-center justify-center p-4 bg-primarylighter border border-border rounded-md mt-4 text-2xl uppercase">
-        <p>Total expense:</p>
-        <p className="text-secondary">
-          -R$ <span>1000,00</span>
-        </p>
-      </div>
+      <h1 className="text-2xl">Expenses</h1>
+      <TotalExpenses total={2000} />
       <div className="grid grid-cols-4 mt-4 gap-4">
         <div className="sm:col-span-1 col-span-4">
           <ExpenseForm />
