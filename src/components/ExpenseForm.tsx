@@ -1,7 +1,7 @@
 import React from "react";
 import { GoPlusCircle } from "react-icons/go";
 
-function IncomeForm() {
+function ExpenseForm() {
   return (
     <form className="flex flex-col w-full">
       <input
@@ -31,10 +31,10 @@ function IncomeForm() {
         className="flex items-center justify-center gap-x-2 w-full border border-border rounded-md bg-secondary py-2 pl-2 mt-2 mb-4 outline-none"
       >
         <GoPlusCircle />
-        Add Income
+        Add Expense
       </button>
     </form>
   );
 }
 
-export default IncomeForm;
+export default ExpenseForm;

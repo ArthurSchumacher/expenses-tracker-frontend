@@ -38,7 +38,7 @@ export default function Dashboard() {
             <p>+R$ 4000</p>
           </div>
 
-          <div className="w-full grid grid-cols-3 gap-x-4 mb-4">
+          <div className="w-full grid grid-cols-3 gap-x-4 mb-4 mt-8">
             <div className="w-full flex items-center justify-start text-xs">
               Min
             </div>
