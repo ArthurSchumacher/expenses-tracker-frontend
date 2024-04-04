@@ -10,29 +10,29 @@ import { paths } from "@/paths";
 
 function Sidebar() {
   return (
-    <div className="col-span-1 border border-border rounded-md sm:p-4 p-1 bg-primarylight min-h-[96vh] flex flex-col gap-8">
+    <div className="col-span-1 border border-border rounded-md sm:p-4 p-1 bg-primarylight min-h-[96vh] flex flex-col gap-6">
       <Avatar />
       <Navbar>
         <NavbarLink to={paths.dashboard()}>
           <SiGoogleanalytics className="text-md" />
-          <p className="text-md sm:flex hidden">Dashboard</p>
+          <p className="text-sm sm:flex hidden">Dashboard</p>
         </NavbarLink>
         <NavbarLink to={paths.transactions()}>
           <GoCreditCard className="text-md" />
-          <p className="text-md sm:flex hidden">View Transactions</p>
+          <p className="text-sm sm:flex hidden">View Transactions</p>
         </NavbarLink>
         <NavbarLink to={paths.incomes()}>
           <FaMoneyBillTrendUp className="text-md" />
-          <p className="text-md sm:flex hidden">Incomes</p>
+          <p className="text-sm sm:flex hidden">Incomes</p>
         </NavbarLink>
         <NavbarLink to={paths.expenses()}>
           <FaMoneyBillTransfer className="text-md" />
-          <p className="text-md sm:flex hidden">Expenses</p>
+          <p className="text-sm sm:flex hidden">Expenses</p>
         </NavbarLink>
       </Navbar>
       <div className="text-neutral-50 flex items-center gap-2 mt-auto sm:self-start sm:justify-start self-center pb-2">
         <FaSignOutAlt className="text-md" />
-        <p className="text-md sm:flex hidden">Sign Out</p>
+        <p className="text-sm sm:flex hidden">Sign Out</p>
       </div>
     </div>
   );
