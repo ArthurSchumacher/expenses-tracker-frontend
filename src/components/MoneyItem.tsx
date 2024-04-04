@@ -27,7 +27,10 @@ function MoneyItem({ money }: MoneyItemProps) {
           {money.title}
         </p>
         <div className="flex flex-wrap items-center justify-between gap-x-4">
-          <p className="py-2">{formatPrice(money.price)}</p>
+          <p className="py-2">
+            {money.categoryId === 1 ? "" : "-"}
+            {formatPrice(money.price)}
+          </p>
           <p className="py-2 text-neutral-50 flex items-center gap-x-2">
             <CiCalendarDate size={20} />
             {formatDate(money.date.toString())}
