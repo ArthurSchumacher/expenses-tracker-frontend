@@ -3,18 +3,18 @@ import formatPrice from "@/utils/formatPrice";
 import React from "react";
 
 interface HistoryItemProps {
-  expense: Money;
+  money: Money;
 }
 
-function HistoryItem({ expense }: HistoryItemProps) {
+function HistoryItem({ money }: HistoryItemProps) {
   return (
     <div
       className={`w-full border border-border bg-primarylighter p-4 rounded-md flex items-center justify-between mb-4 ${
-        expense.categoryId === 1 ? "text-lime-500" : "text-secondary"
+        money.categoryId === 1 ? "text-lime-500" : "text-secondary"
       }`}
     >
-      <p className="text-lg">{expense.title}</p>
-      <p>-{formatPrice(expense.price)}</p>
+      <p className="text-lg">{money.title}</p>
+      <p>-{formatPrice(money.price)}</p>
     </div>
   );
 }
