@@ -4,6 +4,8 @@ import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import Container from "@/components/Container";
 import Grid from "@/components/Grid";
+import { Providers } from "./providers";
+import { Toaster } from "react-hot-toast";
 
 const josefin = Josefin_Sans({ subsets: ["latin"] });
 
@@ -19,7 +21,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${josefin.className} bg-primary`}>{children}</body>
+      <body className={`${josefin.className} bg-primary`}>
+        <Providers>{children}</Providers>
+        <Toaster
+          toastOptions={{
+            duration: 5000,
+            style: {
+              background: "#211b45",
+              color: "#fff",
+            },
+          }}
+        />
+      </body>
     </html>
   );
 }
