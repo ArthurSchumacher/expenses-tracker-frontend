@@ -5,39 +5,29 @@ import { CiCalendarDate } from "react-icons/ci";
 import { FaDotCircle } from "react-icons/fa";
 import { FaMoneyBill } from "react-icons/fa6";
 import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
+import * as queries from "@/queries";
+import MoneyItem from "@/components/MoneyItem";
 
-export default function Expenses() {
+export default async function Expenses() {
+  const expensesList = await queries.userExpenses();
+  const total_expenses = expensesList.reduce(
+    (acc: any, curr: any) => acc + curr.amount,
+    0
+  );
   return (
     <main>
       <h1 className="text-2xl">Expenses</h1>
-      <TotalExpenses total={2000} />
+      <TotalExpenses total={total_expenses} />
       <div className="grid grid-cols-4 mt-4 gap-4">
         <div className="sm:col-span-1 col-span-4">
           <ExpenseForm />
         </div>
         <div className="sm:col-span-3 col-span-4">
-          <div className="w-full border border-border rounded-md bg-primarylighter p-4 flex items-center">
-            <div className="p-2 sm:flex hidden">
-              <FaMoneyBill className="aspect-square text-3xl" />
-            </div>
-            <div className="px-5">
-              <p className="py-2 inline-flex items-center gap-x-2">
-                <FaDotCircle className="text-secondary text-xs" />
-                Dentist appointment
-              </p>
-              <div className="flex flex-wrap items-center justify-between gap-x-4">
-                <p className="py-2">R$ 4000</p>
-                <p className="py-2 text-neutral-50 flex items-center gap-x-2">
-                  <CiCalendarDate size={20} />
-                  04/03/2024
-                </p>
-                <p className="py-2 text-neutral-50 flex items-center gap-x-2">
-                  <IoChatbubbleEllipsesSharp size={20} />
-                  Dentist appointment
-                </p>
-              </div>
-            </div>
-          </div>
+          {expensesList.reverse().map((expense: any) => {
+            return (
+              <MoneyItem key={expense.id} money={expense} isIncome={false} />
+            );
+          })}
         </div>
       </div>
     </main>

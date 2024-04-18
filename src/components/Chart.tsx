@@ -15,6 +15,7 @@ import {
 } from "chart.js";
 
 import { Line } from "react-chartjs-2";
+import formatDate from "@/utils/formatDate";
 
 ChartJS.register(
   LineController,
@@ -28,29 +29,32 @@ ChartJS.register(
   ArcElement
 );
 
-function Chart() {
+interface ChartProps {
+  list: any[];
+  expenses: any[];
+  incomes: any[];
+}
+
+function Chart({ list, expenses, incomes }: ChartProps) {
+  const formattedLabels = list.map((item) => formatDate(item.date));
+  const incomeData = incomes.map((item) => Number(item.amount));
+  const expenseData = expenses.map((item) => Number(item.amount));
+
   const data = {
-    labels: ["03/04/2024", "03/05/2024", "03/06/2024"],
+    labels: formattedLabels,
     datasets: [
       {
         label: "Income",
-        data: [2000, 2500, 1500],
+        data: incomeData,
         backgroundColor: "#84cc16",
         borderColor: "#84cc16",
         tension: 0.2,
       },
       {
         label: "Expenses",
-        data: [2000, 1500, 1250],
+        data: expenseData,
         backgroundColor: "#eb055a",
         borderColor: "#eb055a",
-        tension: 0.2,
-      },
-      {
-        label: "Total",
-        data: [0, 100, 250],
-        backgroundColor: "#ffffff",
-        borderColor: "#ffffff",
         tension: 0.2,
       },
     ],

@@ -1,22 +1,25 @@
 import History from "@/components/History";
-import { useState } from "react";
+import HistoryItem from "@/components/HistoryItem";
+import * as queries from "@/queries";
 
-export default function Transactions() {
+export default async function Transactions() {
+  const incomesList = await queries.userIncomes();
+  const expensesList = await queries.userExpenses();
+  const mergedList = [...incomesList, ...expensesList];
+  mergedList.sort((a, b) => Date.parse(a.date) - Date.parse(b.date));
+
+  const incomesMap: Record<string, boolean> = {};
+  incomesList.forEach((incomeItem: any) => {
+    incomesMap[incomeItem.title] = true;
+  });
   return (
     <main>
       <History>
-        <div className="w-full border border-border bg-primarylighter p-4 rounded-md flex items-center justify-between mb-4 text-secondary">
-          <p className="text-lg">Dentist appointment</p>
-          <p>-R$ 120</p>
-        </div>
-        <div className="w-full border border-border bg-primarylighter p-4 rounded-md flex items-center justify-between mb-4 text-secondary">
-          <p className="text-lg">Travelling</p>
-          <p>-R$ 3000</p>
-        </div>
-        <div className="w-full border border-border bg-primarylighter p-4 rounded-md flex items-center justify-between mb-4 text-lime-500">
-          <p className="text-lg">From Freelance</p>
-          <p>+R$ 4000</p>
-        </div>
+        {mergedList.map((item) => {
+          // Verifica se o ID do item está presente no mapa de rendimentos
+          const isIncome = incomesMap[item.title] === true;
+          return <HistoryItem key={item.id} money={item} isIncome={isIncome} />;
+        })}
       </History>
     </main>
   );

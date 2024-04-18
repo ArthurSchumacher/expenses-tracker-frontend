@@ -38,7 +38,6 @@ function SignInForm() {
 
   const onSubmit: SubmitHandler<SignInFormFields> = async (data) => {
     try {
-      console.log(data);
       const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
@@ -97,7 +96,7 @@ function SignInForm() {
         className="bg-secondary text-white w-full text-base"
         size="md"
         radius="sm"
-        startContent={<CiUnlock />}
+        startContent={isSubmitting ? null : <CiUnlock />}
         type="submit"
         isLoading={isSubmitting}
       >

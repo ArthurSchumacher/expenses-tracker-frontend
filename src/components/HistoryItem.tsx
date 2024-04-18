@@ -4,17 +4,21 @@ import React from "react";
 
 interface HistoryItemProps {
   money: Money;
+  isIncome: boolean;
 }
 
-function HistoryItem({ money }: HistoryItemProps) {
+function HistoryItem({ money, isIncome }: HistoryItemProps) {
   return (
     <div
       className={`w-full border border-border bg-primarylighter p-4 rounded-md flex items-center justify-between mb-4 ${
-        money.categoryId === 1 ? "text-lime-500" : "text-secondary"
+        isIncome === true ? "text-lime-500" : "text-secondary"
       }`}
     >
       <p className="text-lg">{money.title}</p>
-      <p>-{formatPrice(money.price)}</p>
+      <p>
+        {isIncome === true ? "" : "-"}
+        {formatPrice(money.amount)}
+      </p>
     </div>
   );
 }
