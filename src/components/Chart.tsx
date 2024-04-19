@@ -30,13 +30,12 @@ ChartJS.register(
 );
 
 interface ChartProps {
-  list: any[];
   expenses: any[];
   incomes: any[];
 }
 
-function Chart({ list, expenses, incomes }: ChartProps) {
-  const formattedLabels = list.map((item) => formatDate(item.date));
+function Chart({ expenses, incomes }: ChartProps) {
+  const formattedLabels = incomes.map((item) => formatDate(item.date));
   const incomeData = incomes.map((item) => Number(item.amount));
   const expenseData = expenses.map((item) => Number(item.amount));
 

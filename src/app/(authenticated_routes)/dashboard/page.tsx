@@ -54,11 +54,7 @@ export default async function Dashboard() {
       <h1 className="text-2xl">All Transactions</h1>
       <div className="grid grid-cols-4 mt-4 gap-4">
         <div className="sm:col-span-2 col-span-4">
-          <Chart
-            list={mergedList}
-            expenses={expensesList}
-            incomes={incomesList}
-          />
+          <Chart expenses={expensesList} incomes={incomesList} />
           <Status
             total_income={total_income}
             total_expenses={total_expenses}
